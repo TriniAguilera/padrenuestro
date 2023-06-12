@@ -155,30 +155,17 @@ class VentanaConstructor(QWidget):
         self.layout_grilla.setVerticalSpacing(1)
         self.widget_grilla.setLayout(self.layout_grilla)
         self.widget_grilla.setStyleSheet("""
-            background-color: #c48027;
+            background-color: #876244;
             border-color: 1px solid #000000;
         """)
 
         ### agregamos los cuadrados a la grilla
         for fila in range(16):
             for columna in range(11):
-                # casilla = QLabel(self)
-                # casilla.setFixedSize(52, 52)
-                # casilla.setStyleSheet("background-color: #d1a77a")
-                # casilla.setObjectName(f"{fila}_{columna}")
-                # self.label_casillas_grilla[f"{fila}_{columna}"] = casilla
-                # self.layout_grilla.addWidget(casilla, fila, columna)
-                # boton_casilla = QPushButton(self)
-                # boton_casilla.setObjectName(f"{fila}_{columna}")
-                # boton_casilla.setStyleSheet(
-                #     "background-color: rgba(0, 0, 0, 0); border: none;")
-                # boton_casilla.clicked.connect(self.casilla_presionada)
-                # boton_casilla.setFixedSize(52, 52)
-                # self.layout_grilla.addWidget(boton_casilla, fila, columna)
                 if fila == 0 or fila == 15 or columna == 0 or columna == 10:
                     casilla = QLabel(self)
                     casilla.setStyleSheet("background-color: #d1a77a")
-                    ruta_foto = p.RUTA_DESIERTO_CORTADO ########### cambiarlo a PARAMETROS 
+                    ruta_foto = p.RUTA_BORDE ########### cambiarlo a PARAMETROS 
                     foto = QPixmap(ruta_foto)
                     casilla.setPixmap(foto)
                     casilla.setScaledContents(True)

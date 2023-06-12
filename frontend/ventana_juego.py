@@ -29,7 +29,7 @@ class VentanaJuego(QWidget):
                             p.RUTA_LUIGI_UP_3], "F": [p.RUTA_LUIGI_FRONT]}
         self.imagenes_horizontal = {-1: [p.RUTA_WHITE_GHOST_LEFT_1, p.RUTA_WHITE_GHOST_LEFT_2,
                                 p.RUTA_WHITE_GHOST_LEFT_3], 1: [p.RUTA_WHITE_GHOST_RIGHT_1,
-                                p.RUTA_WHITE_GHOST_RIGHT_1, p.RUTA_WHITE_GHOST_RIGHT_3]}
+                                p.RUTA_WHITE_GHOST_RIGHT_2, p.RUTA_WHITE_GHOST_RIGHT_3]}
         self.imagenes_vertical = {1: [p.RUTA_RED_GHOST_VERTICAL_1, p.RUTA_RED_GHOST_VERTICAL_2,
                                 p.RUTA_RED_GHOST_VERTICAL_3]}
     def init_gui(self):
@@ -87,14 +87,14 @@ class VentanaJuego(QWidget):
         self.layout_grilla = QGridLayout()
         self.layout_grilla.setHorizontalSpacing(1); self.layout_grilla.setVerticalSpacing(1)
         self.widget_grilla.setLayout(self.layout_grilla)
-        self.widget_grilla.setStyleSheet(""" background-color: #c48027;
+        self.widget_grilla.setStyleSheet(""" background-color: #876244;
             border-color: 1px solid #000000; """)
         for fila in range(16):
             for columna in range(11):
                 if fila == 0 or fila == 15 or columna == 0 or columna == 10:
                     casilla = QLabel(self)
                     casilla.setStyleSheet("background-color: #d1a77a")
-                    ruta_foto = p.RUTA_DESIERTO_CORTADO
+                    ruta_foto = p.RUTA_BORDE
                     foto = QPixmap(ruta_foto); casilla.setPixmap(foto)
                     casilla.setScaledContents(True); casilla.setFixedSize(52, 52)
                     self.layout_grilla.addWidget(casilla, fila, columna)
