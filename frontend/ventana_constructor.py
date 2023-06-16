@@ -240,10 +240,35 @@ class VentanaConstructor(QWidget):
             ruta = p.RUTA_ESTRELLA ########### cambiarlo a PARAMETROS
             self.cantidad_estrella -= 1
         elif boton_izq == "V" and self.cantidad_fantasma_vertical_rojo > 0:
-            ruta = p.RUTA_RED_GHOST_VERTICAL_1 ########### cambiarlo a PARAMETROS
+            if self.cantidad_fantasma_vertical_rojo == 3:
+                ruta = p.RUTA_RED_GHOST_VERTICAL_1
+                self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_2)) 
+                self.label_fantasma_vertical.setScaledContents(True)
+            elif self.cantidad_fantasma_vertical_rojo == 2:
+                ruta = p.RUTA_RED_GHOST_VERTICAL_2
+                self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_3)) 
+                self.label_fantasma_vertical.setScaledContents(True)
+            elif self.cantidad_fantasma_vertical_rojo == 1:
+                ruta = p.RUTA_RED_GHOST_VERTICAL_3
+                self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_3)) 
+                self.label_fantasma_vertical.setScaledContents(True)
+            # ruta = p.RUTA_RED_GHOST_VERTICAL_1 ########### cambiarlo a PARAMETROS
             self.cantidad_fantasma_vertical_rojo -= 1
         elif boton_izq == "H" and self.cantidad_fantasma_horizontal_blanco > 0:
-            ruta = p.RUTA_WHITE_GHOST_RIGHT_1 ########### cambiarlo a PARAMETROS
+            # ruta = p.RUTA_WHITE_GHOST_RIGHT_1 ########### cambiarlo a PARAMETROS
+            if self.cantidad_fantasma_horizontal_blanco == 3:
+                ruta = p.RUTA_WHITE_GHOST_RIGHT_1 
+                self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_2)) 
+                self.label_fantasma_horizontal.setScaledContents(True)
+            # self.cantidad_fantasma_horizontal_blanco -= 1
+            elif self.cantidad_fantasma_horizontal_blanco == 2:
+                ruta = p.RUTA_WHITE_GHOST_RIGHT_2
+                self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_3)) 
+                self.label_fantasma_horizontal.setScaledContents(True)
+            elif self.cantidad_fantasma_horizontal_blanco == 1:
+                ruta = p.RUTA_WHITE_GHOST_RIGHT_3
+                self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_3)) 
+                self.label_fantasma_horizontal.setScaledContents(True)
             self.cantidad_fantasma_horizontal_blanco -= 1
         elif boton_izq == "P" and self.cantidad_pared > 0:
             ruta = p.RUTA_PARED ########### cambiarlo a PARAMETROS

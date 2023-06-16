@@ -147,7 +147,12 @@ class VentanaJuego(QWidget):
         print(f"Vamos a poner imagen fantasma horizontal {id} en ({fila}, {columna})")
         nombre = f"H_{id}"; self.label_fantasma_horizontal = QLabel(self)
         self.label_fantasma_horizontal.setObjectName(nombre)
-        self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_1)) 
+        if id == 1:
+            self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_1)) 
+        elif id == 2:
+            self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_2)) 
+        elif id == 3:
+            self.label_fantasma_horizontal.setPixmap(QPixmap(p.RUTA_WHITE_GHOST_RIGHT_3)) 
         self.label_fantasma_horizontal.setScaledContents(True)
         self.label_fantasma_horizontal.setGeometry(QRect(QPoint(372 + 53 * columna + columna, 21 \
                                                                 + 53 * fila), QSize(53, 53)))
@@ -158,7 +163,12 @@ class VentanaJuego(QWidget):
         print(f"Vamos a poner imagen fantasma vertical {id} en ({fila}, {columna})")
         nombre = f"V_{id}"; self.label_fantasma_vertical = QLabel(self)
         self.label_fantasma_vertical.setObjectName(nombre)
-        self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_1)) 
+        if id == 1:
+            self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_1)) 
+        elif id == 2:
+            self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_2)) 
+        elif id == 3:
+            self.label_fantasma_vertical.setPixmap(QPixmap(p.RUTA_RED_GHOST_VERTICAL_3))  
         self.label_fantasma_vertical.setScaledContents(True)
         self.label_fantasma_vertical.setGeometry(QRect(QPoint(372 + 53 * columna + columna, 21 + \
                                                             53 * fila), QSize(53, 53)))
@@ -241,27 +251,41 @@ class VentanaJuego(QWidget):
         if llave not in self.lista_fantasmas_horizontales_eliminados:
             label_f_h = self.dict_label_elementos["H"][llave]
             thread_f_h = threading.Thread(name= llave, target= self.sprites_f_horizontal, \
-                                        args=(label_f_h, d))
+                                        args=(label_f_h, d, id))
             self.dict_threads[llave] = thread_f_h; thread_f_h.start()
             if id == 1:
                 self.anima_f_h_1 = QPropertyAnimation(label_f_h, b"pos")
                 self.anima_f_h_1.setDuration(100)
-                self.anima_f_h_1.setEndValue(QPoint(n_p[0], n_p[1])); self.anima_f_h_1.start()
+                self.anima_f_h_1.setEndValue(QPoint(n_p[0], n_p[1]))
+                self.anima_f_h_1.start()
             elif id == 2:
                 self.anima_f_h_2 = QPropertyAnimation(label_f_h, b"pos")
                 self.anima_f_h_2.setDuration(100)
-                self.anima_f_h_2.setEndValue(QPoint(n_p[0], n_p[1])); self.anima_f_h_2.start()
+                self.anima_f_h_2.setEndValue(QPoint(n_p[0], n_p[1]))
+                self.anima_f_h_2.start()
             elif id == 3:
                 self.anima_f_h_3 = QPropertyAnimation(label_f_h, b"pos")
                 self.anima_f_h_3.setDuration(100)
-                self.anima_f_h_3.setEndValue(QPoint(n_p[0], n_p[1])); self.anima_f_h_3.start()
+                self.anima_f_h_3.setEndValue(QPoint(n_p[0], n_p[1]))
+                self.anima_f_h_3.start()
         print(self.dict_threads) 
 
-    def sprites_f_horizontal(self, label, direccion):
-        for lugar in [0, 1, 2]:
-            label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][lugar]))
-            sleep(0.1)
-        label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][0]))
+    def sprites_f_horizontal(self, label, direccion, id):
+        if id == 1:
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][0]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][0]))
+        elif id == 2: 
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][1]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][1]))
+        elif id == 3:
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][2]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_horizontal[direccion][2]))
 
     def mover_fantasma_vertical(self, d, f_c, pos_antigua, id, media):
         n_p = (372 + 53 * f_c[1] + f_c[1], 21 + 53 * f_c[0])
@@ -269,7 +293,7 @@ class VentanaJuego(QWidget):
         if llave not in self.lista_fantasmas_verticales_eliminados:
             label_f_v = self.dict_label_elementos["V"][llave]
             thread_f_v = threading.Thread(name= llave, target= self.sprites_f_vertical, \
-                                        args=(label_f_v, d))
+                                        args=(label_f_v, d, id))
             self.dict_threads[llave] = thread_f_v; thread_f_v.start()
             if id == 1:
                 self.anima_f_v_1 = QPropertyAnimation(label_f_v, b"pos")
@@ -285,10 +309,25 @@ class VentanaJuego(QWidget):
                 self.anima_f_v_3.setEndValue(QPoint(n_p[0], n_p[1])); self.anima_f_v_3.start()
         print(self.dict_threads) 
 
-    def sprites_f_vertical(self, label, d):
-        for lugar in [0, 1, 2]:
-            label.setPixmap(QPixmap(self.imagenes_vertical[1][lugar])); sleep(0.1)
-        label.setPixmap(QPixmap(self.imagenes_vertical[1][0]))
+    def sprites_f_vertical(self, label, d, id):
+        if id == 1:
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_vertical[1][0]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_vertical[1][0]))
+        elif id == 2: 
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_vertical[1][1]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_vertical[1][1]))
+        elif id == 3:
+            for lugar in [0, 1, 2]:
+                label.setPixmap(QPixmap(self.imagenes_vertical[1][2]))
+                sleep(0.1)
+            label.setPixmap(QPixmap(self.imagenes_vertical[1][2]))
+        # for lugar in [0, 1, 2]:
+        #     label.setPixmap(QPixmap(self.imagenes_vertical[1][lugar])); sleep(0.1)
+        # label.setPixmap(QPixmap(self.imagenes_vertical[1][0]))
               
     def detener_thread_fantasmas(self):
         if len(self.dict_threads.keys()) > 0:
