@@ -61,7 +61,7 @@ RUTA_BORDE = os.path.join("sprites", "Elementos", "roca_desierto_cortada.png")
 RUTA_FUEGO = os.path.join("sprites", "Elementos", "lingote_cortado.png")
 RUTA_LOGO = os.path.join("sprites", "Elementos", "logo.png")
 RUTA_ESTRELLA = os.path.join("sprites", "Elementos", "confesionario_2.jpg")
-RUTA_ROCA = os.path.join("sprites", "Elementos", "camello_cortado.png")
+RUTA_ROCA = os.path.join("sprites", "Elementos", "cruz.png")
 RUTA_PARED = os.path.join("sprites", "Elementos", "cactus_cortado.png")
 
 ### ruta fondo inicio
@@ -90,10 +90,10 @@ RUTA_RED_GHOST_VERTICAL_2 = os.path.join("sprites", "Personajes", "cerveza_corta
 RUTA_RED_GHOST_VERTICAL_3 = os.path.join("sprites", "Personajes", "cigarros_cortados.png")
 
 ### ruta fantasma blanco horizontal
-RUTA_WHITE_GHOST_LEFT_1 = os.path.join("sprites", "Personajes", "wsp.png")
+RUTA_WHITE_GHOST_LEFT_1 = os.path.join("sprites", "Personajes", "tik_tok.jpeg")
 RUTA_WHITE_GHOST_LEFT_2 = os.path.join("sprites", "Personajes", "ig.png")
-RUTA_WHITE_GHOST_LEFT_3 = os.path.join("sprites", "Personajes", "tik_tok.jpeg")
-RUTA_WHITE_GHOST_RIGHT_1 = os.path.join("sprites", "Personajes", "wsp.png")
+RUTA_WHITE_GHOST_LEFT_3 = os.path.join("sprites", "Personajes", "wsp.ong")
+RUTA_WHITE_GHOST_RIGHT_1 = os.path.join("sprites", "Personajes", "tik_tok.jpeg")
 RUTA_WHITE_GHOST_RIGHT_2 = os.path.join("sprites", "Personajes", "ig.png")
-RUTA_WHITE_GHOST_RIGHT_3 = os.path.join("sprites", "Personajes", "tik_tok.jpeg")
+RUTA_WHITE_GHOST_RIGHT_3 = os.path.join("sprites", "Personajes", "wsp.png")
 

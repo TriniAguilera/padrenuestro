@@ -113,27 +113,27 @@
     </property>
     <item>
      <property name="text">
-      <string>fantasma muere</string>
+      <string>40 dias en el desierto</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>mapa enunciado</string>
+      <string>Sobredosis</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>mapa facil</string>
+      <string>La manzana de Adan</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>roca salva fantasma</string>
+      <string>El dinero si hace la felicidad</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>modo constructor</string>
+      <string>Modo constructor</string>
      </property>
     </item>
    </widget>

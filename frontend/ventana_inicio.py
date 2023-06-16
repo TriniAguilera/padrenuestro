@@ -50,7 +50,7 @@ class VentanaInicio (window_name, base_class):
 
     def verificar_combo_box(self, nombre):
         self.comboBox_actual = str(self.comboBox_inicio.currentText())
-        if self.comboBox_actual == "modo constructor":
+        if self.comboBox_actual == "Modo constructor":
             self.senal_iniciar_constructor.emit(nombre)
         elif self.comboBox_actual == "None":
             self.pop_up_error(["None", "None", "None"])

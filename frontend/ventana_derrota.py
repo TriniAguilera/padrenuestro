@@ -64,11 +64,11 @@ class VentanaDerrota(QWidget):
         # self.senal_inicio_musica.emit()
 
         if not resultado:
-            self.setStyleSheet("background-color: red")
+            self.setStyleSheet("background-color: #d1a77a")
             self.setWindowTitle("Ventana Derrota")
             self.label_game_over.setText("¡GAME OVER!")
         else:
-            self.setStyleSheet("background-color: rgb(85, 255, 0)")
+            self.setStyleSheet("background-color: #d1a77a")
             self.setWindowTitle("Ventana Victoria")
             self.label_game_over.setText("¡GANASTE!")
         self.label_game_over.setFont(QFont("calibri", 80))
