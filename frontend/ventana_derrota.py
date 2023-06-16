@@ -56,12 +56,12 @@ class VentanaDerrota(QWidget):
 
     def volver(self):
         self.hide()
-        self.senal_detener_musica.emit()
+        # self.senal_detener_musica.emit()
         self.senal_volver_jugar.emit()
 
     def mostrar(self, tiempo, vidas, puntaje, nombre, resultado):
         # tiempo restante, vidas, puntaje, nombre de usuario, gana/pierde
-        self.senal_inicio_musica.emit()
+        # self.senal_inicio_musica.emit()
 
         if not resultado:
             self.setStyleSheet("background-color: red")
@@ -82,7 +82,7 @@ class VentanaDerrota(QWidget):
 
     def ocultar(self):
         self.hide()
-        self.senal_detener_musica.emit()
+        # self.senal_detener_musica.emit()
         sys.exit()
 
 if __name__ == "__main__":
